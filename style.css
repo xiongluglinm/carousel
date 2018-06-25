@@ -1,0 +1,16 @@
+.images{
+    display: flex;
+    align-items: flex-start; /* 知识点-- 1 */
+    transition: transform 0.5s;
+  }
+  .images img{
+    /* border: 1px solid black; */
+  }
+  .window{
+    /* border: 10px solid blue; */
+    width: 200px;
+    overflow: hidden;
+  }
+  .red{
+    color: red;
+  }
