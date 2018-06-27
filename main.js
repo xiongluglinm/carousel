@@ -1,36 +1,39 @@
-var $allButtons = $('#button > ');
-for(let i=0; i<$allButtons.length; i++){
-  $allButtons.eq(i).on('click',function(xx){
-    let index = $(xx.currentTarget).index();
-    let p = index * -200;
-    $('#images').css({
-      'transform': 'translateX('+p+'px)'
-    })
-    $(xx.currentTarget).addClass('red')
-    .siblings('.red').removeClass('red');
-    n = index;
-    console.log('n=='+n)
-  })
-};
 
-var n = 0;
-var size = $allButtons.length;
-$allButtons.eq(n%size).trigger('click');
-var timerId = setTimer.call(undefined,n)
-$('.window').on('mouseenter',function(){
-  window.clearInterval(timerId);
-});
-$('.window').on('mouseleave',function(){
-  timerId = setTimer.call(undefined,n)
-});
+// setTimeout(function(){
+//   $slideArray.children().eq(0).remove()
+//   i_current += 1
+//   console.log(i_current)
+//   console.log(i_right)
+//   $slideArray.append($images.eq(i_right()).clone())
+// },3000)
+var $slideArray
+var $images
+var i_current
+initialize()
+var timerId = setInterval(function(){
+  makeCurrent()
+  i_current += 1
+  makeEnter()
+},3000)
 
 
-function setTimer(){
-    // console.log('n1=='+n1)
-    // console.log(size)
-    return setInterval(()=>{
-    n = n+1
-    // console.log('n=='+n)
-    $allButtons.eq(n%size).trigger('click')
-    },2000)
+function initialize(){
+  $slideArray = $('.slideArray')
+  $images = $('#images').children()
+  i_current = 0
+  $slideArray.append($images.eq(i_left()).clone())
+  $slideArray.append($images.eq(0).clone())
+  $slideArray.append($images.eq(i_right()).clone())
+}
+function i_left(){
+  return (i_current-1 >= 0) ? i_current : 4
+}
+function i_right(){
+  return (i_current+1)%5
+}
+function makeCurrent(){
+  $slideArray.children().eq(0).remove()
+}
+function makeEnter(){
+  $slideArray.append($images.eq(i_right()).clone())
 }
