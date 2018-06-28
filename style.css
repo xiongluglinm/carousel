@@ -1,35 +1,34 @@
 .images{
-    position: absolute;
-    display: none;
-  }
-  .window{
-    border: 1px solid blue;
-    width: 400px;
-    height: 280px;
-    margin: 20px auto;
-    overflow: hidden;
-    position: relative;
-  }
-  .window .slideArray{
-    position: relative;
-    width: 300%;
-    height: 100%;
-    top: 0;
-    left: -400px;
-    z-index: 1;
-  }
-  .window .slideArray img{
-    position: absolute;
-    top: 0;
-    transition: all 1s;
-  }
-  .window .slideArray img:nth-child(1){
-    left: 0px;
-  }
-  .window .slideArray img:nth-child(2){
-    left: 400px;
-  }
-  .window .slideArray img:nth-child(3){
-    left: 800px;
-  }
- 
+  position: absolute;
+  display: none;
+}
+.window{
+  border: 1px solid blue;
+  width: 400px;
+  height: 280px;
+  margin: 20px auto;
+  overflow: hidden;
+  position: relative;
+}
+.window .slideArray{
+  position: relative;
+  width: 300%;
+  height: 100%;
+  top: 0;
+  left: -400px;
+  z-index: 1;
+}
+.window .slideArray img{
+  position: absolute;
+  top: 0;
+  transition: all 1s;
+}
+.window .slideArray img:nth-child(1){
+  left: 0px;
+}
+.window .slideArray img:nth-child(2){
+  left: 400px;
+}
+.window .slideArray img:nth-child(3){
+  left: 800px;
+}
